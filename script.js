@@ -5,6 +5,17 @@ const replayBtn = document.getElementById('replay')
 
 runAnimation()
 
+function resetDOM() {
+  counter.classList.remove('hide')
+  finalMessage.classList.remove('show')
+
+  nums.forEach((num) => {
+    num.classList.value = ''
+  })
+
+  nums[0].classList.add('in')
+}
+
 function runAnimation() {
   nums.forEach((num, idx) => {
     const nextToLast = nums.length - 1
@@ -23,3 +34,8 @@ function runAnimation() {
     
   })
 }
+
+replayBtn.addEventListener('click', () => {
+  resetDOM()
+  runAnimation()
+})
